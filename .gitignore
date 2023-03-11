@@ -2,3 +2,4 @@ service-account-key.json
 staging-service-account-key.json
 node_modules/
 .tool-versions
+.env
