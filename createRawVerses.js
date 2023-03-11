@@ -2,8 +2,8 @@ const admin = require("firebase-admin");
 const fs = require("fs");
 
 // Initialize Firestore and authentication credentials
-const serviceAccount = require("./service-account-key.json");
-/* const serviceAccount = require("./staging-service-account-key.json"); */
+/* const serviceAccount = require("./service-account-key.json"); */
+const serviceAccount = require("./staging-service-account-key.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
@@ -51,6 +51,7 @@ for (let i = 0; i < lines.length; i++) {
         verse,
         text: verseText,
         bible: kjvDocId.trim(),
+        blob: `${book.trim()} ${chapter.trim()}:${verse.trim()} ${verseText.trim()}`
       };
       rawVersesRef.add(data);
     }
